@@ -4,4 +4,4 @@ Countdown is a serverless countdown website project built with HTML, CSS, and Ja
 
 ## License
 
-This project would be released under [MIT](.) license.
+This project would be released under [MIT](https://github.com/loyihsu/countdown-web/blob/main/LICENSE) license.
