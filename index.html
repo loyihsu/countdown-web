@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>倒數計時器 - Loyiworks</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icon/iLWKSMarketing.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <!-- JQuery -->
+    <link
+      rel="stylesheet"
+      href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+      type="text/css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Custom Functions -->
+    <script src="main.js"></script>
+    <script src="jqueryMain.js"></script>
+
+	<!-- Linked: Date & Time Picker -->
+	<!-- MIT License: http://afarkas.github.io/webshim/MIT-LICENSE.txt -->
+    <script src="http://cdn.jsdelivr.net/webshim/1.12.4/extras/modernizr-custom.js"></script>
+    <script src="http://cdn.jsdelivr.net/webshim/1.12.4/polyfiller.js"></script>
+  </head>
+
+  <body>
+    <br />
+    <div class="newcontainer" id="settings">
+      <div class="unselectable">
+        <h1>倒數計時器</h1>
+        <br />
+        <div
+          id="warnings"
+          class="alert alert-warning"
+          style="
+            text-align: left;
+            display: none;
+            animation: show 500ms ease-in-out both;
+          "
+        >
+          <strong>嗚嗚</strong> 你忘記輸入標題了喔！
+        </div>
+      </div>
+      <div style="text-align: left">
+        <div class="form-group">
+          <label for="title">標題</label>
+          <input
+            type="text"
+            class="form-control"
+            name="titlestr"
+            id="titlestr"
+            value=""
+            placeholder="要倒數的標題，例如：XXX 的生日"
+          />
+        </div>
+        <div class="form-group">
+          <label for="date">日期</label>
+          <input
+            type="date"
+            class="form-control"
+            style="width: 100%"
+            name="datestr"
+            id="datestr"
+          />
+        </div>
+        <div class="form-group">
+          <label for="date">時間</label>
+          <input
+            type="time"
+            class="form-control"
+            style="width: 100%"
+            name="timestr"
+            id="timestr"
+            value="00:00"
+          />
+        </div>
+      </div>
+      <br />
+      <button
+        type="button"
+        id="sendBut"
+        class="btn btn-success"
+        onclick="send();"
+      >
+        送出
+      </button>
+    </div>
+
+    <div class="newcontainer2 unselectable" id="countings">
+      距離 <b id="myTitle"></b> <span id="left">還剩下</span>
+      <span id="time"></span>
+
+      <br /><br /><br /><br /><br />
+      <a href="index.html">重新設定</a>
+    </div>
+
+    <div class="lower unselectable">
+      <img src="icon/LWKSonly.png" width="150px" />
+    </div>
+
+    <script>
+      // Setup date & time picker
+      webshims.setOptions("waitReady", false);
+      webshims.setOptions("forms-ext", { type: "date" });
+      webshims.setOptions("forms-ext", { type: "time" });
+      webshims.polyfill("forms forms-ext");
+
+      var rl = document.getElementById("sendBut");
+      if (rl.addEventListener) rl.addEventListener("click", send, false);
+      else if (rl.attachEvent) rl.attachEvent("onclick", send);
+    </script>
+  </body>
+</html>
